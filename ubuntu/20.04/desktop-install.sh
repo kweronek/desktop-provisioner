@@ -1,20 +1,20 @@
 # install ubuntu
 #
 sudo apt update
-sudo apt -Y install git
-sudo apt -Y install curl
-sudo apt -Y install binutils
-sudo apt -Y install pkg-config
-sudo apt -Y install libseccomp-dev
-sudo apt -Y install make
-sudo apt -Y install build-essential
+sudo apt install -y git
+sudo apt install -y curl
+sudo apt install -y binutils
+sudo apt install -y pkg-config
+sudo apt install -y libseccomp-dev
+sudo apt install -y make
+sudo apt install -y build-essential
 #
 sudo snap install go --classic
 mkdir ~/go
 mkdir ~/go/{src,bin,pkg}
 echo "export GOPATH=~/go" >> $HOME/.profile
 #
-sudo apt install openjdk-14-jdk
+sudo apt install -y openjdk-14-jdk
 sudo snap install protobuf --classic
 #
 sudo snap install multipass
