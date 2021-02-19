@@ -52,7 +52,9 @@ source $HOME/.profile
 #
 # VPN-Client FRA-UAS
 wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-sudo echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
+sudo chmod 777 /etc/apt/sources.list
+echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
+sudo chmod 644 /etc/apt/sources.list
 sudo apt-get update
 sudo apt install forticlient
 #
