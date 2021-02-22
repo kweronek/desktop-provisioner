@@ -39,7 +39,8 @@ sudo snap install kubectl --classic
 sudo snap install kate
 sudo snap install goland --classic
 sudo snap install pycharm-educational --classic
-sudo snap install arduino --classic
+sudo snap install arduino
+sudo usermod -a -G  dialout $USER
 sudo snap install postman
 #
 # install Chrome
