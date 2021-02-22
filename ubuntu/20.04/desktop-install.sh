@@ -50,6 +50,18 @@ echo "set nocompatible" > $HOME/.vimrc
 echo "export PATH=$PATH:." >> $HOME/.profile
 source $HOME/.profile
 #
+# Zoom-Client
+cd ~/Downloads
+wget https://zoom.us/client/latest/zoom_amd64.deb
+sudo apt install ./zoom_amd64.deb
+cd ~
+#
+# Teams-Client
+cd ~/Downloads
+wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb
+sudo dpkg -i teams_1.3.00.16851_amd64.deb
+cd ~
+#
 # VPN-Client FRA-UAS
 wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
 sudo chmod 777 /etc/apt/sources.list
