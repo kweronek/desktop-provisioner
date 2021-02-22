@@ -37,6 +37,7 @@ sudo snap install tree
 sudo snap install htop
 sudo snap install kubectl --classic
 sudo snap install kate
+sudo snap install --classic code
 sudo snap install goland --classic
 sudo snap install pycharm-educational --classic
 sudo snap install arduino
