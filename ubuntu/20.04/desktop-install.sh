@@ -26,13 +26,13 @@ wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bas
 # install rancher k3c
 git clone https://github.com/rancher/k3c
 cd k3c
-make build
+make build"https://s3.amazonaws.com/gitlab-runner-downloads/master/deb/gitlab-runner_amd64.deb
 ./bin/k3c daemon --group=$(id -g) &
 cd ..
-#
+
 # install k3s
 curl -sfL https://get.k3s.io | sh -
-#
+
 sudo snap install tree
 sudo snap install htop
 sudo snap install kubectl --classic
@@ -43,11 +43,19 @@ sudo snap install pycharm-educational --classic
 sudo snap install arduino
 sudo usermod -a -G  dialout $USER
 sudo snap install postman
-#
+
+cd ~/Downloads
+ARCH="amd64"
+curl -LJO "https://s3.amazonaws.com/gitlab-runner-downloads/master/rpm/gitlab-runner_${ARCH}.rpm"
+dpkg -i gitlab-runner_$ARCH.deb
+cd ~
+
 # install Chrome
+cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
-#
+cd~
+
 ## ensure that arrows work in vi
 echo "set nocompatible" > $HOME/.vimrc
 ## add . to PATH
