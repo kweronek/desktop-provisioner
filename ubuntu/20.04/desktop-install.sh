@@ -1,4 +1,4 @@
-# install ubuntu
+# install ubuntu desktop on premise
 #
 sudo apt update
 sudo apt install -y git
