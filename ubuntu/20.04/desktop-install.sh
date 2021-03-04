@@ -46,10 +46,10 @@ curl -sfL https://get.k3s.io | sh -
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 
 # install rancher k3c
-cd ~/Downloads
-git clone https://github.com/rancher/k3c
-make build"https://s3.amazonaws.com/gitlab-runner-downloads/master/deb/gitlab-runner_amd64.deb
-./bin/k3c daemon --group=$(id -g) &
+#cd ~/Downloads
+#git clone https://github.com/rancher/k3c
+#make build"https://s3.amazonaws.com/gitlab-runner-downloads/master/deb/gitlab-runner_amd64.deb
+#./bin/k3c daemon --group=$(id -g) &
 
 # install fluxctl
 sudo snap install fluxctl --classic
