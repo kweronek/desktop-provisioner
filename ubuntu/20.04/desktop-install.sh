@@ -27,17 +27,16 @@ sudo snap install docker
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 #
 # install rancher k3c
+cd ~/Downloads
 git clone https://github.com/rancher/k3c
-cd k3c
 make build"https://s3.amazonaws.com/gitlab-runner-downloads/master/deb/gitlab-runner_amd64.deb
 ./bin/k3c daemon --group=$(id -g) &
-cd ..
 
 # install rancher k3s
 curl -sfL https://get.k3s.io | sh -
 
 # install Terraform
-cd Downloads
+cd ~/Downloads
 TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'`
 wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
 unzip terraform_${TER_VER}_linux_amd64.zip
@@ -63,13 +62,11 @@ cd ~/Downloads
 ARCH="amd64"
 curl -LJO "https://s3.amazonaws.com/gitlab-runner-downloads/master/rpm/gitlab-runner_${ARCH}.rpm"
 dpkg -i gitlab-runner_$ARCH.deb
-cd ~
 
 # install Chrome
 cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
-cd~
 
 ## ensure that arrows work in vi
 echo "set nocompatible" > $HOME/.vimrc
@@ -81,15 +78,14 @@ source $HOME/.profile
 cd ~/Downloads
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo apt install ./zoom_amd64.deb
-cd ~
 #
 # instll Teams-Client
 cd ~/Downloads
 wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb
 sudo dpkg -i teams_1.3.00.16851_amd64.deb
-cd ~
 #
 # install VPN-Client FRA-UAS fortinet
+cd~/Downloads
 wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
 sudo chmod 777 /etc/apt/sources.list
 echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
