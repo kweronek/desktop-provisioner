@@ -103,11 +103,6 @@ ARCH="amd64"
 curl -LJO "https://s3.amazonaws.com/gitlab-runner-downloads/master/rpm/gitlab-runner_${ARCH}.rpm"
 sudo dpkg -i gitlab-runner_$ARCH.deb
 
-# install Chrome
-cd $HOME/Downloads
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-
 ## ensure that arrows work in vi
 echo "set nocompatible" > $HOME/.vimrc
 ## add . to PATH
@@ -117,7 +112,7 @@ source $HOME/.profile
 # install Zoom-Client
 cd $HOME/Downloads
 wget https://zoom.us/client/latest/zoom_amd64.deb
-sudo apt install ./zoom_amd64.deb
+sudo apt install -y ./zoom_amd64.deb
 #
 # install Teams-Client
 sudo snap install teams
@@ -138,8 +133,14 @@ cd $HOME/Downloads
 # install Thunderbird
 sudo apt install -y thunderbird
 
-# install Liber-Office
+# install Libre-Office
 sudo snap install -y libreoffice
+
+# install Chrome
+cd $HOME/Downloads
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt --fix-broken install -Y
 
 # install Oracle-Virtual-Box
 sudo apt install -y virtualbox virtualbox-ext-pack
