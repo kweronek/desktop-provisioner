@@ -2,7 +2,9 @@
 
 ###### install ubuntu desktop on premise
 pwd
-mkdir -pv Downloads
+mkdir -pv $HOME/Downloads
+sudo mkdir -pv /root/Downloads
+sudo chmod 775 /root/Downloads
 # Package Manager update
 sudo apt update
 sudo apt-get update
