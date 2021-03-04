@@ -15,7 +15,7 @@ if [[ -f  "$FILE" ]];
 then
   echo "Gnome is already installed."
 else
-  sudo apt install tasksel
+  sudo apt install -y tasksel
   sudo tasksel install ubuntu-desktop
   sudo reboot
 fi
