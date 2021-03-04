@@ -11,8 +11,7 @@ sudo apt-get update
 
 ###### install gnome desktop when not already installed
 DIR=/etc/gnome
-if [[ -d  "$DIR" ]];
-then
+if [ -d  "$DIR" ];then
   echo "Gnome is already installed."
 else
   sudo apt install -y tasksel
