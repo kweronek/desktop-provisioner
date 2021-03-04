@@ -1,9 +1,19 @@
+#!/bin/bash
+
 ###### install ubuntu desktop on premise
 pwd
 mkdir -pv Downloads
 # Package Manager update
 sudo apt update
 sudo apt-get update
+
+###### install gnome desktop when not already installed
+if ![-a /etc/gnome]
+then
+  sudo apt install tasksel
+  sudo tasksel install ubuntu-desktop
+  sudo reboot
+fi
 
 # install dev tools and utils
 sudo apt install -y git
