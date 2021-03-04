@@ -48,7 +48,7 @@ wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bas
 # install rancher k3c
 cd ~/Downloads
 git clone https://github.com/rancher/k3c
-make build "https://s3.amazonaws.com/gitlab-runner-downloads/master/deb/gitlab-runner_amd64.deb
+make build
 ./bin/k3c daemon --group=$(id -g) &
 
 # install fluxctl
