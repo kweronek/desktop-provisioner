@@ -18,6 +18,7 @@ then
 fi
 
 # install dev tools and utils
+apt-get install zip unzip -qy
 sudo apt install -y git
 sudo apt install -y curl
 sudo apt install -y pkg-config
@@ -63,6 +64,7 @@ wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bas
 # install rancher k3c
 cd $HOME/Downloads
 git clone https://github.com/rancher/k3c
+cd k3c
 sudo make build
 ./bin/k3c daemon --group=$(id -g) &
 
