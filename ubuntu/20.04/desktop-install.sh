@@ -33,7 +33,7 @@ sudo apt install -y binutils
 # install go
 sudo snap install go --classic
 echo "export GOPATH=~/Public/ws/go" >> $HOME/.profile
-mkdir -pv ~/Public/ws/go/{src,bin,pkg}
+mkdir -pv $HOME/Public/ws/go/{src,bin,pkg}
 
 # install Java openjdk
 sudo apt install -y openjdk-14-jdk
@@ -64,9 +64,9 @@ curl -sfL https://get.k3s.io | sh -
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 
 # install rancher k3c
-cd ~/Downloads
+cd $HOME/Downloads
 git clone https://github.com/rancher/k3csnap install microk8s --classic 
-make build
+sudo make build
 ./bin/k3c daemon --group=$(id -g) &
 
 # install fluxctl
@@ -74,7 +74,7 @@ sudo snap install fluxctl --classic
 
 ####### install IaaS-technologies
 # install Terraform
-cd ~/Downloads
+cd $HOME/Downloads
 TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'`
 wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
 unzip terraform_${TER_VER}_linux_amd64.zip
@@ -99,13 +99,13 @@ sudo usermod -a -G  dialout $USER
 sudo snap install postman
 
 # install Gitlab-runner
-cd ~/Downloads
+cd $HOME/Downloads
 ARCH="amd64"
 curl -LJO "https://s3.amazonaws.com/gitlab-runner-downloads/master/rpm/gitlab-runner_${ARCH}.rpm"
 sudo dpkg -i gitlab-runner_$ARCH.deb
 
 # install Chrome
-cd ~/Downloads
+cd $HOME/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
@@ -116,17 +116,17 @@ echo "export PATH=$PATH:." >> $HOME/.profile
 source $HOME/.profile
 #
 # install Zoom-Client
-cd ~/Downloads
+cd $HOME/Downloads
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo apt install ./zoom_amd64.deb
 #
 # install Teams-Client
-cd ~/Downloads
+cd $HOME/Downloads
 wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb
 sudo dpkg -i teams_1.3.00.16851_amd64.deb
 #
 # install VPN-Client FRA-UAS fortinet
-cd ~/Downloads
+cd $HOME/Downloads
 
 ## wenn im Repo für Ubuntu 20.04
 #wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
