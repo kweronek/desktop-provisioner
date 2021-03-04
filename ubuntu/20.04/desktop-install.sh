@@ -6,7 +6,6 @@ sudo apt-get update
 # install dev tools and utils
 sudo apt install -y git
 sudo apt install -y curl
-sudo apt install -y binutils
 sudo apt install -y pkg-config
 sudo apt install -y libseccomp-dev
 sudo apt install -y make
@@ -14,10 +13,15 @@ sudo apt install -y build-essential
 
 ####### install programming langubaes
 # python is installed by default on Ubuntu 20.04 LTS
+# install gcc
+sudo apt install -y binutils
+sudo apt-get install manpages-dev
+
 # install go
 sudo snap install go --classic
 echo "export GOPATH=~/Public/ws/go" >> $HOME/.profile
 mkdir -pv ~/Public/ws/go/{src,bin,pkg}
+
 # install Java openjdk
 sudo apt install -y openjdk-14-jdk
 # install protocol buffers
