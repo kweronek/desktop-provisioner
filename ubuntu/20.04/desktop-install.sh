@@ -1,4 +1,6 @@
 ###### install ubuntu desktop on premise
+pwd
+mkdir -pv Downloads
 # Package Manager update
 sudo apt update
 sudo apt-get update
@@ -40,14 +42,18 @@ sudo snap install docker
 sudo snap install kubectl --classic
 sudo snap install kubeadm --classic
 
+# install microk8s
+snap install microk8s --classic
+
 # install rancher k3s
 curl -sfL https://get.k3s.io | sh -
+
 # install rancher k3d
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 
 # install rancher k3c
 cd ~/Downloads
-git clone https://github.com/rancher/k3c
+git clone https://github.com/rancher/k3csnap install microk8s --classic 
 make build
 ./bin/k3c daemon --group=$(id -g) &
 
@@ -113,7 +119,7 @@ cd ~/Downloads
 ## wenn im Repo für Ubuntu 20.04
 #wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
 #sudo chmod 777 /etc/apt/sources.list
-#echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
+#echo "deb amd64 https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
 #sudo chmod 644 /etc/apt/sources.list
 #sudo apt install -y forticlient
 #
