@@ -10,8 +10,11 @@ sudo apt update
 sudo apt-get update
 
 ###### install gnome desktop when not already installed
-if [! -f /etc/gnome];
+FILE=/etc/gnome
+if [-f  $FILE];
 then
+  echo "Gnome is already installed."
+else
   sudo apt install tasksel
   sudo tasksel install ubuntu-desktop
   sudo reboot
@@ -66,7 +69,7 @@ cd $HOME/Downloads
 git clone https://github.com/rancher/k3c
 cd k3c
 sudo make build
-./bin/k3c daemon --group=$(id -g) &
+#./bin/k3c daemon --group=$(id -g) &
 
 # install fluxctl
 sudo snap install fluxctl --classic
@@ -113,6 +116,7 @@ source $HOME/.profile
 cd $HOME/Downloads
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo apt install -y ./zoom_amd64.deb
+sudo apt --fix-broken install
 #
 # install Teams-Client
 sudo snap install teams
@@ -140,7 +144,7 @@ sudo snap install -y libreoffice
 cd $HOME/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt --fix-broken install -Y
+sudo apt --fix-broken install
 
 # install Oracle-Virtual-Box
 sudo apt install -y virtualbox virtualbox-ext-pack
