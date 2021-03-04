@@ -40,11 +40,8 @@ sudo apt install -y openjdk-14-jdk
 # install protocol buffers
 sudo snap install protobuf --classic
 
-####### install OS-Virtualizer
 # install multipass
 sudo snap install multipass
-# install Oracle-Virtual-Box
-# tbd
 
 ####### install container technologies
 # install docker
@@ -121,9 +118,10 @@ wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo apt install ./zoom_amd64.deb
 #
 # install Teams-Client
-cd $HOME/Downloads
-wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb
-sudo dpkg -i teams_1.3.00.16851_amd64.deb
+sudo snap install teams
+#cd $HOME/Downloads
+#wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb
+#sudo dpkg -i teams_1.3.00.16851_amd64.deb
 #
 # install VPN-Client FRA-UAS fortinet
 cd $HOME/Downloads
@@ -135,3 +133,11 @@ cd $HOME/Downloads
 #sudo chmod 644 /etc/apt/sources.list
 #sudo apt install -y forticlient
 #
+# install Thunderbird
+sudo apt install -y thunderbird
+
+# install Liber-Office
+sudo snap install -y libreoffice
+
+# install Oracle-Virtual-Box
+sudo apt install -y virtualbox virtualbox-ext-pack
