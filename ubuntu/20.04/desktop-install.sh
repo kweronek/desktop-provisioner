@@ -108,7 +108,7 @@ wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.0
 sudo dpkg -i teams_1.3.00.16851_amd64.deb
 #
 # install VPN-Client FRA-UAS fortinet
-cd~/Downloads
+cd ~/Downloads
 wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
 sudo chmod 777 /etc/apt/sources.list
 echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
