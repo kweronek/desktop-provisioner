@@ -15,7 +15,6 @@ sudo apt install -y build-essential
 # python is installed by default on Ubuntu 20.04 LTS
 # install gcc
 sudo apt install -y binutils
-sudo apt-get install manpages-dev
 
 # install go
 sudo snap install go --classic
