@@ -8,7 +8,7 @@ sudo apt update
 sudo apt-get update
 
 ###### install gnome desktop when not already installed
-if ![-a /etc/gnome]
+if [! -a /etc/gnome]
 then
   sudo apt install tasksel
   sudo tasksel install ubuntu-desktop
