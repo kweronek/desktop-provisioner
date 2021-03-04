@@ -65,7 +65,7 @@ wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bas
 
 # install rancher k3c
 cd $HOME/Downloads
-git clone https://github.com/rancher/k3csnap install microk8s --classic 
+git clone https://github.com/rancher/k3c
 sudo make build
 ./bin/k3c daemon --group=$(id -g) &
 
