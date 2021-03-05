@@ -132,12 +132,13 @@ sudo snap install teams
 # install VPN-Client FRA-UAS fortinet
 cd $HOME/Downloads
 
-## wenn im Repo für Ubuntu 20.04
-#wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-#sudo chmod 777 /etc/apt/sources.list
-#echo "deb amd64 https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
-#sudo chmod 644 /etc/apt/sources.list
-#sudo apt install -y forticlient
+# VPN-Client FRA-UAS
+wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
+sudo chmod 777 /etc/apt/sources.list
+echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
+sudo chmod 644 /etc/apt/sources.list
+sudo apt-get update
+sudo apt install forticlient
 
 # install Thunderbird
 sudo apt install -y thunderbird
