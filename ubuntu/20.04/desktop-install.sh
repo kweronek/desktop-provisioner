@@ -1,15 +1,20 @@
 #!/bin/bash
 
-###### install ubuntu desktop on premise
+####### install ubuntu Desktop-Machine on premise
 pwd
 mkdir -pv $HOME/Downloads
 sudo mkdir -pv /root/Downloads
 sudo chmod 775 /root/Downloads
-# Package Manager update
+
+####### Package Manager update
 sudo apt update
 sudo apt-get update
 
-###### install gnome desktop when not already installed
+# add . to PATH
+echo "export PATH=$PATH:." >> $HOME/.profile
+source $HOME/.profile
+
+###### install Gnome desktop when not already installed
 DIR=/etc/gnome
 if [ -d  "$DIR" ];then
   echo "Gnome is already installed."
@@ -19,7 +24,7 @@ else
   sudo reboot
 fi
 
-# install dev tools and utils
+####### install dev tools and utils
 apt-get install zip unzip -qy
 sudo apt install -y git
 sudo apt install -y curl
@@ -30,29 +35,33 @@ sudo apt install -y build-essential
 
 ####### install programming langubaes
 # python is installed by default on Ubuntu 20.04 LTS
-# install gcc
+# install GCC
 sudo apt install -y binutils
 
-# install go
+# install Go
 sudo snap install go --classic
 echo "export GOPATH=~/Public/ws/go" >> $HOME/.profile
 mkdir -pv $HOME/Public/ws/go/{src,bin,pkg}
 
 # install Java openjdk
 sudo apt install -y openjdk-14-jdk
-# install protocol buffers
+
+# install Protocol Buffers
 sudo snap install protobuf --classic
 
-# install multipass
+# install Multipass
 sudo snap install multipass
 
 ####### install container technologies
-# install docker
+# install Docker
 sudo snap install docker
 
-# install different
+# install different CLIs
 sudo snap install kubectl --classic
 sudo snap install kubeadm --classic
+sudo snap install aws-cli --classic
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo snap install google-cloud-sdk --classic
 
 # install microk8s
 snap install microk8s --classic
@@ -105,24 +114,21 @@ ARCH="amd64"
 curl -LJO "https://s3.amazonaws.com/gitlab-runner-downloads/master/rpm/gitlab-runner_${ARCH}.rpm"
 sudo dpkg -i gitlab-runner_$ARCH.deb
 
-## ensure that arrows work in vi
+# ensure that arrows work in vi
 echo "set nocompatible" > $HOME/.vimrc
-## add . to PATH
-echo "export PATH=$PATH:." >> $HOME/.profile
-source $HOME/.profile
-#
+
 # install Zoom-Client
 cd $HOME/Downloads
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo apt install -y ./zoom_amd64.deb
 sudo apt --fix-broken install
-#
+
 # install Teams-Client
 sudo snap install teams
 #cd $HOME/Downloads
 #wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb
 #sudo dpkg -i teams_1.3.00.16851_amd64.deb
-#
+
 # install VPN-Client FRA-UAS fortinet
 cd $HOME/Downloads
 
@@ -132,7 +138,7 @@ cd $HOME/Downloads
 #echo "deb amd64 https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" >> /etc/apt/sources.list
 #sudo chmod 644 /etc/apt/sources.list
 #sudo apt install -y forticlient
-#
+
 # install Thunderbird
 sudo apt install -y thunderbird
 
